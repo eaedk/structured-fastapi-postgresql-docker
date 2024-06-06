@@ -1,0 +1,8 @@
+# Exclude files not needed for Docker build
+__pycache__/
+*.pyc
+*.pyo
+
+# Exclude log files but keep the logs directory
+logs/*
+!logs/.gitkeep
