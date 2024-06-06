@@ -1,12 +1,26 @@
+import os
 from fastapi.testclient import TestClient
 from app.main import app
+from app.db.session import engine, SessionLocal
 
-from app.core.config import settings
+# Load test environment variables
+os.environ["TESTING"] = "True"
+os.environ["SQLALCHEMY_DATABASE_URL"] = os.getenv("SQLALCHEMY_DATABASE_URL_TEST")
 
+# Create a test client
 client = TestClient(app)
 
-# Use the testing database URL for testing
-settings.SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL_TEST
+
+def override_get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+app.dependency_overrides[SessionLocal] = override_get_db
+
 
 def test_create_item():
     response = client.post(
