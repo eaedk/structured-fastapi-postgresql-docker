@@ -1,8 +1,12 @@
 from fastapi.testclient import TestClient
 from app.main import app
 
+from app.core.config import settings
+
 client = TestClient(app)
 
+# Use the testing database URL for testing
+settings.SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL_TEST
 
 def test_create_item():
     response = client.post(
