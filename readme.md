@@ -94,6 +94,7 @@ structured-fastapi-postgresql-docker/
 │   ├── core/
 │   │   ├── __init__.py
 │   │   ├── config.py
+│   │   ├── logging_config.py
 │   ├── db/
 │   │   ├── __init__.py
 │   │   ├── base.py
@@ -102,6 +103,8 @@ structured-fastapi-postgresql-docker/
 │   ├── crud/
 │   │   ├── __init__.py
 │   │   ├── items.py
+│   ├── Logs/
+│   │   ├── .gitkeep
 │   ├── schemas/
 │   │   ├── __init__.py
 │   │   ├── items.py
@@ -109,6 +112,7 @@ structured-fastapi-postgresql-docker/
 ├── tests/
 │   ├── __init__.py
 │   ├── test_items.py
+│   ├── test_logging.py
 ├── .env
 ├── docker-compose.yml
 ├── Dockerfile
