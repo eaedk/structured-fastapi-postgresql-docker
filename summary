@@ -1,4 +1,8 @@
 Everything is working perfectly.
 I have my the API and the DB
 With the API I have tests and logging and an interesting architecture
-I will clean the architecture later. For the moment I want to intergrate a gui for the DB
+I will clean the architecture later. For the moment I want to intergrate a gui for the DB.
+
+# db volume
+DB gui is a bit weird so I added db volume to never lose the db.
+It's working.
